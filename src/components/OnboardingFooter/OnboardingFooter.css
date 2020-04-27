@@ -4,6 +4,7 @@
 }
 .onboarding__footer .onboarding__footer-paragraph{
    color: var(--dark-grey);
+   padding: 15px 30px;
 }
 .onboarding__footer .onboarding__footer-paragraph a{
    text-decoration: none;
