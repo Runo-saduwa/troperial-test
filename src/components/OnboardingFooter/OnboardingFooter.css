@@ -1,0 +1,11 @@
+.onboarding__footer{
+    width: 100%;
+    text-align: center;
+}
+.onboarding__footer .onboarding__footer-paragraph{
+   color: var(--dark-grey);
+}
+.onboarding__footer .onboarding__footer-paragraph a{
+   text-decoration: none;
+   color: var(--troperial-blue);
+}

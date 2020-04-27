@@ -1,0 +1,25 @@
+.contentContainer img {
+    width: 120px;
+    margin: 0 0 20px 0;
+}
+.contentContainer p {
+    color: var(--dark-grey);
+    line-height: 1.5;
+    font-weight: 450;
+}
+.contentContainer .custom-cta {
+    color: var(--original-black);
+}
+.contentContainer a {
+    color: var(--troperial-blue);
+    text-decoration: none;
+}
+.contentContainer .troperial-green {
+    color: var(--troperial-green);
+}
+
+@media (min-width: 768px) {
+    .contentContainer img {
+        visibility: hidden;
+    }
+}
