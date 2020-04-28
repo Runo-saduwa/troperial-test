@@ -12,3 +12,10 @@
 .onboardingNotification_container p {
     color: var(--dark-grey);
 }
+
+@media (min-width: 768px) {
+    .onboardingNotification_container {
+        width: 40%;
+        margin: 0 auto;
+    }
+}

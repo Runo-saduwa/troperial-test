@@ -9,7 +9,8 @@ import ContentContainer from '../components/ContentContainer/ContentContainer';
 import img from './../assets/images/Logo.png'
 
 import forgotpasswordIllustration from '../assets/images/forgot-password-svg.PNG';
-
+import {Link} from "react-router-dom"
+import OnboardingFooter from '../components/OnboardingFooter/OnboardingFooter';
 export default function ForgotPassword() {
     return (
         <OnboardingContainer>
@@ -26,9 +27,10 @@ export default function ForgotPassword() {
                      <CustomButton>Reset Password</CustomButton>
                     </form>
                         <ContentContainer>
-                        <p class="sendToNewPage">Remember Your password? <a href="#">Sign In</a></p>
+                        <p class="sendToNewPage">Remember Your password? <Link to="/signin">Sign In</Link></p>
                         </ContentContainer>
                 </OnboardingFormContainer>
+                <OnboardingFooter/>
             </OnboardingMain>
         </OnboardingContainer>
     )

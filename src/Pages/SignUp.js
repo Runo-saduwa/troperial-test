@@ -14,6 +14,8 @@ import notificationIcon from '../assets/images/troperial-email-illus.PNG'
 import img from './../assets/images/Logo.png'
 import troperialSvg from '../assets/images/reset-password-svg.PNG'
 
+import {Link} from 'react-router-dom';
+
 export default function SignUp() {
     return (
         <OnboardingContainer>
@@ -32,7 +34,7 @@ export default function SignUp() {
                      <CustomButton>Create An Account</CustomButton>
                     </form>
                         <ContentContainer>
-                        <p className="custom-cta">already got an account? <a href="#">Sign In</a></p>
+                        <p className="custom-cta">already got an account? <Link to="/signin">Sign In</Link></p>
                         </ContentContainer>
                 </OnboardingFormContainer>
 
