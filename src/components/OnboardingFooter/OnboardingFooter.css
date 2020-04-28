@@ -1,7 +1,8 @@
 .onboarding__footer{
     width: 100%;
     text-align: center;
-   /* margin-top: 100px; */
+   position: relative;
+   bottom: -40px;
 }
 .onboarding__footer .onboarding__footer-paragraph{
    color: var(--dark-grey);
@@ -11,4 +12,13 @@
 .onboarding__footer .onboarding__footer-paragraph a{
    text-decoration: none;
    color: var(--troperial-blue);
+}
+@media (min-width: 640px) {
+   .onboarding__footer{
+      bottom: -60px;
+  }
+}
+
+@media (min-width: 768px) {
+
 }
