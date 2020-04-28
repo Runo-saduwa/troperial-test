@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import img from '../../assets/images/troperial-money-bag.PNG'
-import troperialSvg from '../../assets/images/reset-password-svg.PNG'
 import troperialLogo from '../../assets/images/Logo.png'
 import './OnboardingAside.css';
 
-const OnboardingAside = props => {
+const OnboardingAside = ({illustration}) => {
     return (
         <aside className="onboardingContainer__aside">
            <div className="onboardingContainer__aside-top">
@@ -16,7 +15,7 @@ const OnboardingAside = props => {
             </h3>
            </div>
            <div className="onboardingContainer__aside-bottom">
-               <img src={troperialSvg} alt="troperial-sign-in-svg"/>
+               <img src={illustration} alt="troperial-illustration"/>
            </div>
         </aside>
     )

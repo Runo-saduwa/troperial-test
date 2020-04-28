@@ -1,12 +1,26 @@
 .onboardingContainer__main {
-    position: relative;
-    height: 90vh;
-}
-.onboardingContainer__main div.onboardingContainer__main--header {
-    position: absolute;
-    width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    height: 100vh;
+}
+.onboardingContainer__main div.onboardingContainer__main--header {
+    width: 100%;
+}
+
+@media (min-width: 640px) {
+
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (min-width: 1024px) {
+
+}
+
+@media (min-width: 1280px) {
+
 }

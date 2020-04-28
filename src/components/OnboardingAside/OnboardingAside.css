@@ -2,11 +2,11 @@
     display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
     .onboardingContainer__aside {
         position: relative;
         display: block;
-        height: 100vh;
+        height: 100%;
         background: var(--troperial-dim-blue);
     }
 

@@ -1,12 +1,18 @@
 .onboardingFormContainer {
     width: 80%;
     margin: 0 auto;
-    height: 85vh;
 }
 @media (min-width: 768px) {
     .onboardingFormContainer {
-        width: 35%;
-        height: 90vh;
+        width: 50%;
     }
- 
+}
+@media (min-width: 1024px) {
+    .onboardingFormContainer {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1280px) {
+
 }
