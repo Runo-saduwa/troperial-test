@@ -1,12 +1,16 @@
 import React from 'react'
 import './CustomButton.css'
-
-const CustomButton = ({children}) => {
+import PulseLoader from "react-spinners/PulseLoader";
+const CustomButton = ({children, disable, loading, onClickHandler}) => {
     return (
-        <button className="customButton">
-            {children}
+        <button onClick={onClickHandler} className="customButton" disabled={disable}>
+            <PulseLoader 
+            size={10}
+            color={"#fff"}
+            loading={loading}
+            />
+            {!loading && children}
         </button>
     )
 }
-
 export default CustomButton

@@ -30,6 +30,7 @@
     top: -6px;
     left: 15px;
     color: var(--dark-grey);
+    border-radius: 5px;
 }
 .customInputContainer__input-group:focus-within .custom-label{
     display: block;

@@ -8,5 +8,4 @@ const OnboardingFormContainer = ({children}) => {
         </div>
     )
 }
-
 export default OnboardingFormContainer

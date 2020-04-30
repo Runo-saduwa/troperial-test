@@ -1,6 +1,5 @@
 import React from 'react'
 import './OnboardingContainer.css';
-
 const OnboardingContainer = ({ children }) => {
     return (
         <section className="onboardingContainer">
@@ -8,5 +7,4 @@ const OnboardingContainer = ({ children }) => {
         </section>
     )
 }
-
 export default OnboardingContainer

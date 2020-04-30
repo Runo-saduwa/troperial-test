@@ -1,4 +1,4 @@
-import React, { Children } from 'react'
+import React from 'react'
 import './OnboardingNotification.css'
 
 const OnboardingNotification = ({notificationIcon, title, message, children}) => {

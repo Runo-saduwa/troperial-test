@@ -13,3 +13,8 @@
     background: var(--troperial-blue);
     font-weight: 400;
 }
+
+.customButton a {
+    text-decoration: none;
+    color: var(--original-white);
+}

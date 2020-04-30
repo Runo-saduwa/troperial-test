@@ -10,7 +10,6 @@ import CustomButton from '../components/CustomButton/CustomButton';
 import ContentContainer from '../components/ContentContainer/ContentContainer';
 import img from './../assets/images/Logo.png'
 import {Link} from 'react-router-dom';
-
 import forgotpasswordIllustration from '../assets/images/forgot-password-svg.PNG';
 import notificationIcon from '../assets/images/reset-password-illus.PNG'
 
@@ -19,9 +18,9 @@ export default function ResetPassword() {
         <OnboardingContainer>
             <OnboardingAside illustration={forgotpasswordIllustration}/>
             <OnboardingMain>
-                {/* <OnboardingFormContainer>
+                <OnboardingFormContainer>
                     <ContentContainer>
-                        <img src={img} alt=""/>
+                        <img src={img} alt="troperial logo"/>
                         <h2>Set a password</h2>
                         <p>Make sure to set a password that's<br/> unique to you, difficult and not easy to guess</p>
                     </ContentContainer>
@@ -33,7 +32,7 @@ export default function ResetPassword() {
                         <ContentContainer>
                         <p className="custom-cta">Remember Your Password? <Link to="/signin">Sign In</Link></p>
                         </ContentContainer>
-                </OnboardingFormContainer> */}
+                </OnboardingFormContainer>
                  <div>
                     <OnboardingNotification notificationIcon={notificationIcon} title="Your Password's been reset!" message="Now you can get back into your account to make the trades you want.">
                     <CustomButton>Get back in</CustomButton>

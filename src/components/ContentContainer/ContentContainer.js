@@ -1,7 +1,6 @@
 import React from 'react'
 import './ContentContainer.css'
 
-
 const ContentContainer = ({children}) => {
     return (
         <div className="contentContainer">
@@ -9,5 +8,4 @@ const ContentContainer = ({children}) => {
         </div>
     )
 }
-
 export default ContentContainer
