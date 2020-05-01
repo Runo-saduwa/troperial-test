@@ -23,17 +23,17 @@ const awsmobile = {
             //  userPoolWebClientId: "634219b4on68tunp5fqpfnmtlv"
 
             // Amazon Cognito User Pool ID
-        userPoolId: "us-east-1_0fIbiKHAY",
+        // userPoolId: "us-east-1_0fIbiKHAY",
 
   // Amazon Cognito Web Client ID (26-char alphanumeric string)
-        userPoolWebClientId: "ts2d0dsgphtpjjv2qpkc2t1e9"
+        // userPoolWebClientId: "ts2d0dsgphtpjjv2qpkc2t1e9"
 
 
 
-        //identityPoolId: "us-east-2:9f96f32d-84b8-490f-92d1-896cf2c6d404",
-        //region: "us-east-2",
-        //userPoolId: "us-east-2_tCa1tUZiV",
-        //userPoolWebClientId: "4afpccqditfotj9gfcci3qhnj7",
+        identityPoolId: "us-east-2:9f96f32d-84b8-490f-92d1-896cf2c6d404",
+        region: "us-east-2",
+        userPoolId: "us-east-2_tCa1tUZiV",
+        userPoolWebClientId: "4afpccqditfotj9gfcci3qhnj7",
     },
     aws_appsync_graphqlEndpoint: "https://3ys7qk6psng2jcxok4jm66bevm.appsync-api.us-east-1.amazonaws.com/graphql",
     aws_appsync_region: "us-east-1",
