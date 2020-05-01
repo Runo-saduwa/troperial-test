@@ -7,10 +7,10 @@ export default function AuthenticatedRoute({ children, ...rest }) {
   const { isAuthenticated } = useContext(AppContext);
   return (
     <Route {...rest}>
-      {isAuthenticated  === true ? (
+      {isAuthenticated === true ? (
         children
       ) : (
-        <Redirect to={`/login?redirect=${pathname}${search}`} />
+        <Redirect to={`/signin?redirect=${pathname}${search}`} />
       )}
     </Route>
   );

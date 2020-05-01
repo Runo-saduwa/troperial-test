@@ -12,10 +12,10 @@ export default function Routes() {
   return (
     <Switch>
       <Route exact path="/" component={Home}/>
-      <Route exact path="/dashboard" component={Dashboard}/>
-      {/* <AuthenticatedRoute exact path="/dashboard">
+      {/* <Route exact path="/dashboard" component={Dashboard}/> */}
+      <AuthenticatedRoute exact path="/dashboard">
         <Dashboard/>
-      </AuthenticatedRoute> */}
+      </AuthenticatedRoute>
       <AuthenticatedRoute exact path="/reset">
         <ResetPassword/>
       </AuthenticatedRoute>
