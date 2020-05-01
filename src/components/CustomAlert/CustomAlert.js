@@ -1,17 +1,20 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import './CustomAlert.css';
-const Alert = ({message}) => {
+const Alert = ({message, onClick}) => {
     return (
-        <div className="customAlert__container">
-            
-            <div>
-            <i className="customAlert__icon fas fa-exclamation-circle"></i>
-            <p className="customAlert__message">{message}</p>
-            </div>
-            <div>
-                <span><i className="fas fa-times"></i></span>
-            </div>
-        </div>
+      <Fragment>
+         {/* {showAlert ? ( */}
+                <div className="customAlert__container">
+                <div>
+                <i className="customAlert__icon fas fa-exclamation-circle"></i>
+                <p className="customAlert__message">{message}</p>
+                </div>
+                <div>
+                    <span onClick={onClick}><i className="fas fa-times"></i></span>
+                </div>
+               </div>
+         {/* ): null} */}
+      </Fragment>
     )
 }
 

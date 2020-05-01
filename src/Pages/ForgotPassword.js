@@ -20,6 +20,7 @@ import { useForm } from 'react-hook-form';
 import InputError from '../components/InputError/InputError';
 export default function ForgotPassword() {
     const [step, setStep] = useState(1);
+    const [email, setEmail] = useState("")
     const [isLoading, setIsLoading] = useState(false);
     const [authError, setAuthError] = useState(false);
     const [showPasswordQuality, setShowPasswordQuality] = useState(false);
@@ -30,6 +31,8 @@ export default function ForgotPassword() {
 
     const handleEmailForm = async (data) => {
         const {email} = data;
+        setEmail(email)
+
         setIsLoading(true);
         try {
             await Auth.forgotPassword(email);
@@ -37,20 +40,21 @@ export default function ForgotPassword() {
             setStep(2);
         } catch(e) {
             console.log(e)
+            setAuthError(e.message);
             setIsLoading(false);
         }
     }
 
     const handleResetPassword = async (data) => {
-        const {email, code, password} = data;
+        const {code, password} = data;
         setIsLoading(true);
         try {
             await Auth.forgotPasswordSubmit(email, code, password);
-            console.log('success');
             setIsLoading(false);
             setStep(4);
         } catch(e) {
             console.log(e)
+            setAuthError(e.message)
             setIsLoading(false);
         }
         
@@ -84,6 +88,7 @@ export default function ForgotPassword() {
                         <img src={img} alt="troperial-logo"/>
                         <h2>Forgot Your Password</h2>
                         <p>Enter your Troperial email address and we'll<br/> send you a link to reset your password</p>
+                        {authError && <CustomAlert message={authError} onClick={() => setAuthError(false)}/>}
                     </ContentContainer>
                     <form action="" onSubmit={handleSubmit(handleEmailForm)}>
                     <CustomInput showError={errors.email ? true : false} register={register({ required: true, pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} type="text" name="email" label="Email" placeholder="Email"/>
@@ -105,6 +110,7 @@ export default function ForgotPassword() {
                 <img src={img} alt="troperial logo"/>
                 <h2>Set a password</h2>
                 <p>Make sure to set a password that's<br/> unique to you, difficult and not easy to guess</p>
+                {authError && <CustomAlert message={authError} onClick={() => setAuthError(false)}/>}
             </ContentContainer>
             <form action="" onSubmit={handleSubmit(handleResetPassword)}>
             <CustomInput name="code" type="text" showError={errors.code ? true : false} register={register({required: true})} label="Verfication Code" placeholder="Verification Code"/>

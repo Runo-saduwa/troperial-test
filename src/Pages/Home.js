@@ -15,12 +15,35 @@ const Home = () => {
     return (
         <div>
          {isAuthenticated ? <button onClick={handleLogout}>logout</button>: 
-             <div>
-            <Link to="/signup">sign up</Link>
-            <Link to="/signin">sign in</Link>
-            <Link to="/forgotpassword">forgotpassword</Link>
-            <Link to="/resetpassword">reset ResetPassword</Link>
-        </div>
+             <div style={{
+                 width: "100%",
+                 height: "20vh",
+                 display: "flex",
+                 justifyContent: "center",
+                 alignItems: "center"
+             }}>
+            <div>
+                <h3>Welcome to Troperial</h3>
+            <Link to="/signup" style={{
+                 textDecoration: "none",
+                 background: "#333",
+                 borderRadius: "3px",
+                 padding: "10px 15px",
+                 fontSize: "18px",
+                 color: "#fff",
+                 margin: "10px 10px"
+             }}>sign up</Link>
+             <Link to="/signin" style={{
+                 textDecoration: "none",
+                 background: "#333",
+                 borderRadius: "3px",
+                 padding: "10px 15px",
+                 fontSize: "18px",
+                 color: "#fff",
+                 margin: "10px 10px"
+             }}>Log in</Link>
+            </div>
+            </div>
         }
         
         </div>

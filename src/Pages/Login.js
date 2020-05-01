@@ -43,7 +43,7 @@ export default function SignIn() {
                         <img src={img} alt="troperial logo"/>
                         <h2>Sign In to <span className="troperial-green">Troperial</span></h2>
                         <p>Enter your email address and password<br/> to sign in to Troperial</p>
-                        {authError && <CustomAlert message={authError} />}
+                        {authError && <CustomAlert message={authError} onClick={() => setAuthError(false)} />}
                     </ContentContainer>
                     <form onSubmit={handleSubmit(onSubmit)}>
                     <CustomInput showError={errors.email ? true : false} register={register({ required: true, pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} type="text" name="email" label="Email" placeholder="Email"/>

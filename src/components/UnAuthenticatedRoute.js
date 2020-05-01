@@ -25,7 +25,7 @@ import { AppContext } from "../libs/contextLib";
         {!isAuthenticated ? (
           children
         ) : (
-          <Redirect to={redirect === "" || redirect === null ? "/" : redirect} />
+          <Redirect to={redirect === "" || redirect === null ? "/dashboard" : redirect} />
         )}
       </Route>
     );
