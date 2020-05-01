@@ -49,6 +49,9 @@ const SignUp = () => {
         return validator.matches(password, reg);
     }
     const checkPasswordStrength = (password) => {
+        if(password.length === 0) {
+            setShowPasswordQuality(false);
+        }
         if(match(password) && password.length ===6) {
             setShowPasswordQuality(true)
             setPasswordQuality({
