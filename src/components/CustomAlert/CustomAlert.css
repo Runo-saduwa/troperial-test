@@ -3,13 +3,15 @@
     background-color: var(--danger-red);
     align-items: center;
     justify-content: space-between;
-    padding: 10px 10px;
+    padding: 8px 8px;
 }
 .customAlert__container .customAlert__message {
     padding:0;
     margin:0 5px;
     display: inline;
+    font-size: 0.8rem;
 }
 .customAlert__icon {
   color: var(--danger-red-icon);
+  font-size: 0.8rem;
 }
