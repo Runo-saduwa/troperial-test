@@ -1,0 +1,15 @@
+.customAlert__container {
+    display: flex;
+    background-color: var(--danger-red);
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+}
+.customAlert__container .customAlert__message {
+    padding:0;
+    margin:0 5px;
+    display: inline;
+}
+.customAlert__icon {
+  color: var(--danger-red-icon);
+}

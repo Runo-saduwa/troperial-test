@@ -2,11 +2,15 @@
     width: 100%;
     height: 100vh;
     overflow-x: hidden;
+    /* for testing */
+    /* overflow-y: hidden; */
 }
 @media (min-width: 1024px) {
     .onboardingContainer {
         display: grid;
         grid-template-columns: 1.5fr 3fr;
+           /* for testing */
+        overflow-y: hidden;
     }
 }
 

@@ -32,6 +32,11 @@
   --troperial-green: #00D569;
   --troperial-blue: #0383EF;
   --troperial-dim-blue: #F3F8FF;
+  --warning-yellow: #F2C94C;
+  --danger-red: #F8E8E9;
+  --danger-red-icon: #E53E3E;
+  --error-color: #FF9CA1;
+  --success-green: #38A169;
   /* Font sizes */
   --custom-h1-rem: 3.438rem;
   --custom-h2-rem: 3rem;

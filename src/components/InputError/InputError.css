@@ -1,0 +1,7 @@
+.inputError__container {
+    color: var(--danger-red-icon);
+    font-size: 0.7rem;
+}
+.inputError__container i {
+    color: var(--danger-red-icon);
+}

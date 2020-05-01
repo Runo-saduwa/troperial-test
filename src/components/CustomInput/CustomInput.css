@@ -35,3 +35,15 @@
 .customInputContainer__input-group:focus-within .custom-label{
     display: block;
 }
+.customInputContainer__input-group input.error {
+    border: 1.1px solid var(--error-color)
+}
+.customInputContainer__input-hint {
+    display: none;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--dark-grey);
+}
+.customInputContainer__input-group:focus-within .customInputContainer__input-hint {
+    display: block;
+}

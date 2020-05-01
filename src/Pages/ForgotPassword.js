@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import OnboardingContainer from '../components/OnboardingContainer/OnboardingContainer';
 import OnboardingAside from '../components/OnboardingAside/OnboardingAside';
 import OnboardingMain from '../components/OnboardingMain/OnboardingMain';
@@ -13,37 +13,69 @@ import forgotpasswordIllustration from '../assets/images/forgot-password-svg.PNG
 import {Link} from "react-router-dom"
 import OnboardingFooter from '../components/OnboardingFooter/OnboardingFooter';
 import {Auth} from 'aws-amplify';
-import {useFormFields} from '../libs/useFormFields';
+import validator from 'validator';
+import CustomAlert from '../components/CustomAlert/CustomAlert';
+import ProgressBar from '../components/ProgressBar/ProgressBar';
+import { useForm } from 'react-hook-form';
+import InputError from '../components/InputError/InputError';
 export default function ForgotPassword() {
     const [step, setStep] = useState(1);
-    const [fields, handleFieldChange] = useFormFields({
-        email: "",
-        password: "",
-        confirmPassword: "",
-        code: ""
-    });
+    const [isLoading, setIsLoading] = useState(false);
+    const [authError, setAuthError] = useState(false);
+    const [showPasswordQuality, setShowPasswordQuality] = useState(false);
+    const [passwordQuality, setPasswordQuality] = useState({ quality: "", percentage: ""});
+    const { register, handleSubmit, errors, watch } = useForm();
+    const password = useRef({});
+    password.current = watch("password", "");
 
-    const handleEmailForm = async (e) => {
-        e.preventDefault();
+    const handleEmailForm = async (data) => {
+        const {email} = data;
+        setIsLoading(true);
         try {
-            await Auth.forgotPassword(fields.email);
+            await Auth.forgotPassword(email);
+            setIsLoading(false);
             setStep(2);
         } catch(e) {
             console.log(e)
+            setIsLoading(false);
         }
     }
 
-    const handleResetPassword = async (e) => {
-        e.preventDefault();
-        if(fields.email.length < 0 && fields.code.length < 0 && fields.confirmPassword < 0) return '';
+    const handleResetPassword = async (data) => {
+        const {email, code, password} = data;
+        setIsLoading(true);
         try {
-            await Auth.forgotPasswordSubmit(fields.email, fields.code, fields.password);
+            await Auth.forgotPasswordSubmit(email, code, password);
             console.log('success');
+            setIsLoading(false);
             setStep(4);
         } catch(e) {
             console.log(e)
+            setIsLoading(false);
         }
         
+    }
+    const match = (password) => {
+        const reg = /^(?=.*[!@#$%^&*()\-_=+`~\[\]{}?|])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,20}$/;
+        return validator.matches(password, reg);
+    }
+    const checkPasswordStrength = (password) => {
+        if(match(password) && password.length ===6) {
+            setShowPasswordQuality(true)
+            setPasswordQuality({
+                quality: 'Medium',
+                percentage: '50'
+            })
+        }
+
+        if(password.length > 6 && match(password)){
+            setShowPasswordQuality(true)
+            setPasswordQuality({
+                quality: 'Strong',
+                percentage: '80'
+            })
+
+        }
     }
     const renderEmailForm = () => {
         return (
@@ -53,9 +85,11 @@ export default function ForgotPassword() {
                         <h2>Forgot Your Password</h2>
                         <p>Enter your Troperial email address and we'll<br/> send you a link to reset your password</p>
                     </ContentContainer>
-                    <form action="" onSubmit={handleEmailForm}>
-                    <CustomInput type="text" name="email" value={fields.email} onChange={handleFieldChange} label="Email" placeholder="Email"/>
-                     <CustomButton loading={false}>Next</CustomButton>
+                    <form action="" onSubmit={handleSubmit(handleEmailForm)}>
+                    <CustomInput showError={errors.email ? true : false} register={register({ required: true, pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} type="text" name="email" label="Email" placeholder="Email"/>
+                    {errors.email?.type === "required" && <InputError>Your email is required</InputError>}
+                    {errors.email?.type === "pattern" && <InputError>Please provide a valid email address</InputError>}
+                     <CustomButton loading={isLoading}>Next</CustomButton>
                     </form>
                         <ContentContainer>
                         <p className="sendToNewPage">Remember Your password? <Link to="/signin">Sign In</Link></p>
@@ -72,11 +106,16 @@ export default function ForgotPassword() {
                 <h2>Set a password</h2>
                 <p>Make sure to set a password that's<br/> unique to you, difficult and not easy to guess</p>
             </ContentContainer>
-            <form action="" onSubmit={handleResetPassword}>
-            <CustomInput name="code" type="text" value={fields.code} onChange={handleFieldChange} label="Verfication Code" placeholder="Verification Code"/>
-            <CustomInput name="password" type="password" value={fields.password} onChange={handleFieldChange} label="Password" placeholder="Password"/>
-             <CustomInput name="confirmPassword" type="password" value={fields.confirmPassword} onChange={handleFieldChange} label="Confirm Password" placeholder="Confirm Password"/>
-             <CustomButton loading={false}>Set Password</CustomButton>
+            <form action="" onSubmit={handleSubmit(handleResetPassword)}>
+            <CustomInput name="code" type="text" showError={errors.code ? true : false} register={register({required: true})} label="Verfication Code" placeholder="Verification Code"/>
+            {errors.code?.type === "required" && <InputError>Your input is required</InputError>}
+            <CustomInput hint="Password must be between 6 - 20 characters and must include atleast 1 Uppercase letter, 1 Lowercase letter, 1 numeric value and one special character." showError={errors.password ? true : false} register={register({required: true, pattern: /^(?=.*[!@#$%^&*()\-_=+`~\[\]{}?|])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,20}$/})} name="password" type="password" onChange={(e) => checkPasswordStrength(e.target.value)} label="Password" placeholder="Password"/>
+             {errors.password?.type === "required" && <InputError>Your input is required</InputError>}
+             {errors.password?.type === "pattern" && <InputError>Password must have 6 to 30 characters</InputError>}
+             <CustomInput showError={errors.password_repeat ? true : false} register={register({required: true, validate: value => value === password.current || <InputError>The passwords do not match</InputError>})} name="password_repeat" type="password" label="Confirm Password" placeholder="Confirm Password"/>
+             {errors.password_repeat && <p>{errors.password_repeat.message}</p>}
+             {showPasswordQuality === true ? <ProgressBar grade={passwordQuality} /> : null}
+             <CustomButton loading={isLoading}>Set Password</CustomButton>
             </form>
                 <ContentContainer>
                 <p className="custom-cta">Remember Your Password? <Link to="/signin">Sign In</Link></p>
@@ -89,9 +128,7 @@ export default function ForgotPassword() {
         return (
             <div>
             <OnboardingNotification notificationIcon={notificationIcon} title={title} message={message}>
-            
-        <CustomButton onClickHandler={link ? null : () => setStep(3)} loading={false}>{ link ? <Link to="/signin">Get back in </Link> : "Reset Password"}</CustomButton>
-           
+                <CustomButton onClickHandler={link ? null : () => setStep(3)} loading={false}>{ link ? <Link to="/signin">Get back in </Link> : "Reset Password"}</CustomButton>
             </OnboardingNotification>
            </div>
         )

@@ -6,7 +6,7 @@
 }
 .onboarding__footer .onboarding__footer-paragraph{
    color: var(--dark-grey);
-   padding: 15px 30px;
+   padding: 0px 30px;
    box-sizing: border-box;
 }
 .onboarding__footer .onboarding__footer-paragraph a{

@@ -13,9 +13,11 @@
     "emotion-theming": "^10.0.27",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^5.6.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "react-spinners": "^0.8.1"
+    "react-spinners": "^0.8.1",
+    "validator": "^13.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

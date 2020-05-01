@@ -11,33 +11,26 @@ import img from './../assets/images/Logo.png'
 import SignInSvg from '../assets/images/troperial-sign-in-svg.PNG'
 import {Link} from 'react-router-dom'
 import {AppContext} from '../libs/contextLib';
-import {useFormFields} from '../libs/useFormFields';
 import {Auth} from 'aws-amplify';
 
-
+import CustomAlert from '../components/CustomAlert/CustomAlert';
+import { useForm } from 'react-hook-form';
+import InputError from '../components/InputError/InputError';
 
 export default function SignIn() {
-    useEffect(() => {
-
-    }, [])
+    useEffect(() => {}, [])
+    const { register, handleSubmit, errors } = useForm()
     const { userHasAuthenticated } = useContext(AppContext);
     const [isLoading, setIsLoading] = useState(false);
-    const [fields, handleFieldChange] = useFormFields({
-        email: "",
-        password: ""
-    });
-    function validateForm() {
-        return fields.email.length > 0 && fields.password.length > 0;
-    }
-    async function handleSubmit(event) {
-        event.preventDefault();
+    const [authError, setAuthError] = useState(false);
+    const onSubmit = async (data) => {
+        const {email, password} = data;
         setIsLoading(true);
-        console.log(fields.email, fields.password)
         try {
-          await Auth.signIn(fields.email, fields.password);
+          await Auth.signIn(email, password);
           userHasAuthenticated(true);
         } catch (e) {
-          alert(e.message);
+          setAuthError(e.message);
           setIsLoading(false);
         }
     }
@@ -50,11 +43,15 @@ export default function SignIn() {
                         <img src={img} alt="troperial logo"/>
                         <h2>Sign In to <span className="troperial-green">Troperial</span></h2>
                         <p>Enter your email address and password<br/> to sign in to Troperial</p>
+                        {authError && <CustomAlert message={authError} />}
                     </ContentContainer>
-                    <form onSubmit={handleSubmit}>
-                     <CustomInput type="text" name="email" value={fields.email} onChange={handleFieldChange} label="Email" placeholder="Email"/>
-                     <CustomInput name="password" type="password" value={fields.password} onChange={handleFieldChange} label="Password" placeholder="Password"/>
-                     <CustomButton loading={isLoading} disable={!validateForm()}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <CustomInput showError={errors.email ? true : false} register={register({ required: true, pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ })} type="text" name="email" label="Email" placeholder="Email"/>
+                    {errors.email?.type === "required" && <InputError>Your email is required</InputError>}
+                    {errors.email?.type === "pattern" && <InputError>Please provide a valid email address</InputError>}
+                    <CustomInput showError={errors.password ? true : false} register={register({required: true})} name="password" type="password" label="Password" placeholder="Password"/>
+                    {errors.password?.type === "required" && <InputError>Your input is required</InputError>}
+                     <CustomButton loading={isLoading}>
                         Sign In
                     </CustomButton>
                     </form>

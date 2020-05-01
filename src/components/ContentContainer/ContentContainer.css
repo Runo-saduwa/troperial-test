@@ -24,7 +24,7 @@
 
 @media (min-width: 768px) {
     .contentContainer img {
-        visibility: hidden;
+       display: none
     }
     .contentContainer h2 {
         font-size: 24px;
