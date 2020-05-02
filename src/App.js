@@ -1,12 +1,12 @@
-import React, {Fragment} from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Routes from './Routes';
 
 function App() {
   return (
     <Fragment>
-       <Router>
-            <Routes/>
+      <Router>
+        <Routes />
       </Router>
     </Fragment>
   );

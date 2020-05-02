@@ -1,20 +1,35 @@
-import React, {useContext} from 'react'
-import {Link, useHistory} from 'react-router-dom'
-import {AppContext} from '../libs/contextLib';
-import {Auth} from 'aws-amplify';
+import React, { useContext, Fragment } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { AppContext } from '../libs/contextLib';
+import Container from '../components/Container/Container';
+import NavBar from '../components/NavBar/NavBar';
+import Hero from '../components/Hero/Hero';
+import { Auth } from 'aws-amplify';
 const Home = () => {
+  const history = useHistory();
+  const { isAuthenticated, userHasAuthenticated } = useContext(
+    AppContext,
+  );
+  async function handleLogout() {
+    await Auth.signOut();
+    userHasAuthenticated(false);
 
-    const history = useHistory()
-    const {isAuthenticated, userHasAuthenticated} =  useContext(AppContext);
-    async function handleLogout() {
-        await Auth.signOut();
-        userHasAuthenticated(false);
-        
-        history.push('/')
-      }
-    return (
-        <div>
-         {isAuthenticated ? <button onClick={handleLogout}>logout</button>: 
+    history.push('/');
+  }
+  return (
+    <Fragment>
+      <NavBar />
+      <Container>
+        <Hero />
+      </Container>
+    </Fragment>
+  );
+};
+
+export default Home;
+
+{
+  /* {isAuthenticated ? <button onClick={handleLogout}>logout</button>: 
              <div style={{
                  width: "100%",
                  height: "20vh",
@@ -45,9 +60,5 @@ const Home = () => {
             </div>
             </div>
         }
-        
-        </div>
-    )
+         */
 }
-
-export default Home

@@ -1,6 +1,6 @@
-import React, {useContext} from "react";
-import { Route, Redirect, useLocation } from "react-router-dom";
-import { AppContext } from "../libs/contextLib";
+import React, { useContext } from 'react';
+import { Route, Redirect, useLocation } from 'react-router-dom';
+import { AppContext } from '../libs/contextLib';
 
 export default function AuthenticatedRoute({ children, ...rest }) {
   const { pathname, search } = useLocation();

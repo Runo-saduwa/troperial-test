@@ -14,7 +14,7 @@ const awsmobile = {
         mandatorySignIn: true,
         
              // Amazon Cognito Region
-             //region: "us-east-1",
+              //region: "us-east-1",
 
             //  // Amazon Cognito User Pool ID
             //  userPoolId: "us-east-1_L3d1NoJPy",
@@ -23,10 +23,10 @@ const awsmobile = {
             //  userPoolWebClientId: "634219b4on68tunp5fqpfnmtlv"
 
             // Amazon Cognito User Pool ID
-        // userPoolId: "us-east-1_0fIbiKHAY",
+         //userPoolId: "us-east-1_0fIbiKHAY",
 
-  // Amazon Cognito Web Client ID (26-char alphanumeric string)
-         //userPoolWebClientId: "ts2d0dsgphtpjjv2qpkc2t1e9"
+  //Amazon Cognito Web Client ID (26-char alphanumeric string)
+//          userPoolWebClientId: "ts2d0dsgphtpjjv2qpkc2t1e9"
 
 
 

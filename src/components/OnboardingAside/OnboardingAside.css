@@ -1,30 +1,31 @@
 .onboardingContainer__aside {
-    display: none;
+  display: none;
 }
 
 @media (min-width: 1024px) {
-    .onboardingContainer__aside {
-        position: relative;
-        display: block;
-        height: 100%;
-        background: var(--troperial-dim-blue);
-    }
+  .onboardingContainer__aside {
+    position: relative;
+    display: block;
+    height: 100%;
+    background: var(--troperial-dim-blue);
+  }
 
-    .onboardingContainer__aside-bottom  img{
-      width: 100%;
-    }
-    .onboardingContainer__aside-bottom {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-    .onboardingContainer__aside-top {
-        position: absolute;
-        top: 18%;
-        left: 15%;
-        color: var(--dark-grey);
-    }
-    .onboardingContainer__aside-top img{
-        margin-bottom: -10px;
-    }
+  .onboardingContainer__aside-bottom img {
+    width: 100%;
+  }
+  .onboardingContainer__aside-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .onboardingContainer__aside-top {
+    position: absolute;
+    top: 18%;
+    left: 15%;
+    color: var(--dark-grey);
+  }
+  .onboardingContainer__aside-top img.moneyBag {
+    width: 25px;
+    margin-bottom: -6px;
+  }
 }
