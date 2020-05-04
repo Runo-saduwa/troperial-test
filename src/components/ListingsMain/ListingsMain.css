@@ -1,6 +1,9 @@
 .listing__main-container {
     background: #fff;
+    padding: 25px;
 }
+
+
 
 @media (min-width: 768px) {
         .listing__main-container {

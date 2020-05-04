@@ -4,14 +4,11 @@ import './Listings.css';
 import ListingsAside from '../../components/ListingsAside/ListingsAside';
 import ListingsMain from '../../components/ListingsMain/ListingsMain';
 import Container from '../../components/Container/Container';
+import TableContent from '../../components/TableContent/TableContent'
+import TableHead from '../../components/TableHead/TableHead';
 import Banner from '../../components/Banner/Banner'
 
 const Listings = () => {
-    const styles = {
-      position: 'relative',
-      top: '45px',
-      height: '100px',
-    };
     return (
       <Fragment>
         <NavBar />
@@ -24,8 +21,13 @@ const Listings = () => {
               {/* links to listings and my lisitnngs */}
               {/* --------------------------- */}
               {/*a container div to hold */}
-              <div>
-
+              <div className="table-container">
+                <TableHead/>
+                <TableContent/>
+                <TableContent/>
+                <TableContent/>
+                <TableContent/>
+                <TableContent/>
               </div>
             </ListingsMain>
           </div>
