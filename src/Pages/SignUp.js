@@ -20,6 +20,8 @@ import InputError from '../components/InputError/InputError';
 import notificationIcon from '../assets/images/troperial-email-illus.PNG';
 import troperialSvg from '../assets/images/reset-password-svg.PNG';
 import img from './../assets/images/Logo.png';
+/**constants */
+import { passwordRegex, emailRegex } from '../constants/regex';
 
 const SignUp = () => {
   const { register, handleSubmit, errors, watch } = useForm();
@@ -53,10 +55,9 @@ const SignUp = () => {
     }
   };
 
-  const match = (password) => {
-    const reg = /^(?=.*[!@#$%^&*()\-_=+`~\[\]{}?|])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,20}$/;
-    return validator.matches(password, reg);
-  };
+  const match = (password, reg = passwordRegex) =>
+    validator.matches(password, reg);
+
   const checkPasswordStrength = (password) => {
     if (password.length === 0) {
       setShowPasswordQuality(false);
@@ -103,7 +104,7 @@ const SignUp = () => {
             showError={errors.email ? true : false}
             register={register({
               required: true,
-              pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              pattern: emailRegex,
             })}
             type="text"
             name="email"
@@ -123,7 +124,7 @@ const SignUp = () => {
             showError={errors.password ? true : false}
             register={register({
               required: true,
-              pattern: /^(?=.*[!@#$%^&*()\-_=+`~\[\]{}?|])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,20}$/,
+              pattern: passwordRegex,
             })}
             name="password"
             type="password"

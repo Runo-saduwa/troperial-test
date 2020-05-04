@@ -1,4 +1,8 @@
 .container {
-    width: 90%;
+    position: relative;
+    width: 100%;
     margin: 0 auto;
+    z-index: -1;
+    background: var(--troperial-dim-blue);
+    min-height: 100vh;
 }

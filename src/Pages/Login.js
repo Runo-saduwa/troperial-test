@@ -1,22 +1,23 @@
 import React, { useContext, useState, useEffect } from 'react';
+import { emailRegex } from '../constants/regex';
+import { AppContext } from '../libs/contextLib';
+import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
-import { useForm } from 'react-hook-form';
+/**Images */
+import SignInSvg from '../assets/images/troperial-sign-in-svg.PNG';
+import img from './../assets/images/Logo.png';
 /**Custom Components */
+import OnboardingFormContainer from '../components/OnboardingFormContainer/OnboardingFormContainer';
 import OnboardingContainer from '../components/OnboardingContainer/OnboardingContainer';
+import ContentContainer from '../components/ContentContainer/ContentContainer';
+import OnboardingFooter from '../components/OnboardingFooter/OnboardingFooter';
 import OnboardingAside from '../components/OnboardingAside/OnboardingAside';
 import OnboardingMain from '../components/OnboardingMain/OnboardingMain';
-import OnboardingFooter from '../components/OnboardingFooter/OnboardingFooter';
-import OnboardingFormContainer from '../components/OnboardingFormContainer/OnboardingFormContainer';
-import CustomInput from '../components/CustomInput/CustomInput';
 import CustomButton from '../components/CustomButton/CustomButton';
-import ContentContainer from '../components/ContentContainer/ContentContainer';
+import CustomInput from '../components/CustomInput/CustomInput';
 import CustomAlert from '../components/CustomAlert/CustomAlert';
 import InputError from '../components/InputError/InputError';
-/**Images */
-import img from './../assets/images/Logo.png';
-import SignInSvg from '../assets/images/troperial-sign-in-svg.PNG';
-import { AppContext } from '../libs/contextLib';
 
 const SignIn = () => {
   useEffect(() => {}, []);
@@ -63,7 +64,7 @@ const SignIn = () => {
               showError={errors.email ? true : false}
               register={register({
                 required: true,
-                pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                pattern: emailRegex,
               })}
               type="text"
               name="email"
@@ -87,7 +88,7 @@ const SignIn = () => {
               placeholder="Password"
             />
             {errors.password?.type === 'required' && (
-              <InputError>Your input is required</InputError>
+              <InputError>Your password is required</InputError>
             )}
             <CustomButton loading={isLoading}>Sign In</CustomButton>
           </form>

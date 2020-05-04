@@ -17,6 +17,7 @@ import forgotpasswordIllustration from '../assets/images/forgot-password-svg.PNG
 import notificationIcon from '../assets/images/reset-password-illus.PNG';
 import img from './../assets/images/Logo.png';
 /**Packages */
+import { passwordRegex, emailRegex } from '../constants/regex';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { Auth } from 'aws-amplify';
@@ -67,10 +68,8 @@ const ForgotPassword = () => {
     }
   };
 
-  const match = (password) => {
-    const reg = /^(?=.*[!@#$%^&*()\-_=+`~\[\]{}?|])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,20}$/;
-    return validator.matches(password, reg);
-  };
+  const match = (password, reg = passwordRegex) =>
+    validator.matches(password, reg);
 
   const checkPasswordStrength = (password) => {
     if (match(password) && password.length === 6) {
@@ -111,7 +110,7 @@ const ForgotPassword = () => {
             showError={errors.email ? true : false}
             register={register({
               required: true,
-              pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              pattern: emailRegex,
             })}
             type="text"
             name="email"
@@ -171,7 +170,7 @@ const ForgotPassword = () => {
             showError={errors.password ? true : false}
             register={register({
               required: true,
-              pattern: /^(?=.*[!@#$%^&*()\-_=+`~\[\]{}?|])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,20}$/,
+              pattern: passwordRegex,
             })}
             name="password"
             type="password"

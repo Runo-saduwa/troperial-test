@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './NavBar.css';
-import {Link} from 'react-router-dom';
-import CustomButton from '../CustomButton/CustomButton';
+import { Link } from 'react-router-dom';
 import logo from '../../assets/images/Logo.png';
+import profileImage from '../../assets/images/profile.png';
 
 const NavBar = () => {
   const [menu, setMenu] = useState(false);
@@ -11,69 +11,61 @@ const NavBar = () => {
     setMenu(!menuState);
   };
   return (
-    <nav className="navbar">
-      <div className="navbarContainer">
-        <div>
-          <Link to="/"><img src={logo} alt="logo" /></Link>
+    <nav className="navigationBar">
+      {/* large screen nav bar */}
+      <section className="largeScreen__container">
+        <div className="largeScreen__logoContainer">
+          <img
+            className="largeScreen__logo"
+            src={logo}
+            alt="troperial logo"
+          />
         </div>
-
-        <div>
-          <div className="mainLinks hideOnMobile">
-            <span>
-              <a href="">How it works</a>
-            </span>
-            <span>
-              <a href="">Market News</a>
-            </span>
-            <span>
-              <a href="">Help</a>
-            </span>
-            <span>
-              <a href="">About</a>
-            </span>
+        <div className="largeScreen-links">
+          <Link to="/listings"><i className="fas fa-align-justify"></i> Listings</Link>
+          <Link to="/messages"><i className="fas fa-comment-alt"></i> messages</Link>
+          <Link to="/notifications"><i className="fas fa-bell"></i> notifiactions</Link>
+        </div>
+        <div className="largeScreen__profileContainer">
+          <img
+            className="largeScreen__profile"
+            src={profileImage}
+            alt="profile image"
+          />
+          <p>Peter <i className="fas fa-caret-down"></i></p>
+        </div>
+      </section>
+      {/* small screen navbar */}
+      <section className="smallScreen__container">
+        <div className="smallScreen__shield">
+          <div className="smallScreen-logoContainer">
+            <button onClick={toggleMenu}>
+              <i className="fas fa-bars"></i>
+            </button>
+          </div>
+          <div className="smallScreen__pageTitle">
+            <h4 className="title">
+              {' '}
+              <i className="fas fa-envelope"></i> Messages
+            </h4>
+          </div>
+          <div className="smallScreen__profileContainer">
+            <img
+              className="smallScreen__profile"
+              src={profileImage}
+              alt="profile image"
+            />
           </div>
         </div>
-
-        <div>
-          <div className="authLinks hideOnMobile">
-            <span>
-              <Link to="/signin">login</Link>
-            </span>
-            <span className="signUpDesktop">
-              <CustomButton loading={false} padding="10px" fontSize="0.9rem">
-              <Link to="/signup">create an account</Link>
-              </CustomButton>
-            </span>
+        {/* navigation links */}
+        {menu ? (
+          <div className="smallScreen___linkContainer">
+            <Link to="/listings">Listings</Link>
+            <Link to="/messages">messages</Link>
+            <Link to="/notifications">notifiactions</Link>
           </div>
-          <i onClick={toggleMenu} className="hamburger fas fa-bars" />
-        </div>
-      </div>
-
-      {menu ? (
-        <div className="mobileNav">
-          <div className="mobileNavContainer">
-            <span>
-              <a href="">How it works</a>
-            </span>
-            <span>
-              <a href="">Market News</a>
-            </span>
-            <span>
-              <a href="">Help</a>
-            </span>
-            <span>
-              <a href="">About</a>
-            </span>
-            <div className="horizontal-line" />
-            <span>
-            <Link to="/signin">login</Link>
-            </span>
-            <span className="signUpMobile">
-            <Link to="/signup">create an account</Link>
-            </span>
-          </div>
-        </div>
-      ) : null}
+        ) : null}
+      </section>
     </nav>
   );
 };

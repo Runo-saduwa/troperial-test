@@ -1,0 +1,24 @@
+/* .listings__aside-container {
+    background: blue;
+} */
+
+.listings__mobile-verified {
+    height: 30px;
+    display: flex;
+    background: var(--troperial-green);
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.listings__mobile-verified img {
+    height: 30px;
+}
+.listings__mobile-verified p {
+    margin: 0 8px;
+}
+
+@media (min-width: 768px) {
+    .listings__mobile-verified {
+        display: none;
+    }
+}
