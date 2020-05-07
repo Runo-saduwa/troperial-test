@@ -1,7 +1,7 @@
 nav.navigationBar {
 	width: 100%;
 	position: fixed;
-	z-index: 1000;
+	z-index: 1;
 }
 .largeScreen__container {
 	display: none;
@@ -51,26 +51,36 @@ nav.navigationBar {
 	color: var(--troperial-blue);
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 768px) {
 	.smallScreen__container {
 		display: none;
 	}
 	nav.navigationBar {
 		margin-top: 20px;
+		z-index: initial;
 	}
 	.largeScreen__container {
-		width: 90%;
+		width: 95%;
 		box-sizing: border-box;
 		height: 50px;
 		margin: 0 auto;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 		z-index: inherit;
 		padding: 0 50px;
         border-radius: 15px;
-        background: #fff;
+		background: #fff;
+		box-shadow: 0 1px 1px rgba(0,0,0,0.15), 
+		0 2px 2px rgba(0,0,0,0.15), 
+		0 4px 4px rgba(0,0,0,0.15), 
+		0 8px 8px rgba(0,0,0,0.15);
+		/* box-shadow: 0 1px 2px rgba(0,0,0,0.07), 
+		0 2px 4px rgba(0,0,0,0.07), 
+		0 4px 8px rgba(0,0,0,0.07), 
+		0 8px 16px rgba(0,0,0,0.07),
+		0 16px 32px rgba(0,0,0,0.07), 
+		0 32px 64px rgba(0,0,0,0.07); */
 	}
 	.largeScreen__logo {
 		width: 100px;

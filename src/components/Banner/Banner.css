@@ -1,19 +1,45 @@
 .banner__container {
-    background: var(--troperial-dim-blue);
-    padding: 15px 20px;
+    background: var(--troperial-banner-blue);
+    padding: 25px 20px;
     border-radius: 10px;
+    border: 1px solid var(--troperial-banner-border);
 }
-
+.banner__textContent p, h3 {
+    margin: 0; 
+    padding: 0;
+}
 .banner__textContent p {
-    color: var(dark-grey);
+    color: var(--dark-grey);
     font-weight: medium;
+    margin: 10px 0;
 }
-
+.banner__textContent h3 {
+    font-size: 1.4rem;
+    margin: 0 0 10px 0;
+}
+.banner__listing-btn{
+    display: block;
+    box-sizing: border-box;
+    transition: 0.5s ease-in-out;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    color: var(--original-white);
+    background: var(--troperial-blue);
+    font-weight: normal;
+    padding: 10px 15px;
+  }
+  
+  .banner__listing-btn:hover {
+    cursor: pointer;
+    background: rgb(3, 117, 211);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
 .banner__image {
     display: none;
     border-radius: 10px;
 }
-
 @media (min-width: 768px) {
     .banner__image {
         display: inline;
@@ -24,15 +50,17 @@
         border-radius: 10px;
     }
     .banner__container {
-        width: 80%;
+        width: 60%;
         display: flex;
         justify-content: space-between;
         padding: 0;
-        height: 200px;
     }
     .banner__textContent {
         color: var(dark-grey);
-        font-weight: medium;
-        padding: 15px 20px;
+        padding: 20px 20px;
+    }
+    .banner__textContent p {
+        width: 80%;
+        line-height: 1.6;
     }
 }

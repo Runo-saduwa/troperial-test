@@ -1,7 +1,6 @@
 import React, { useContext, Fragment } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { AppContext } from '../libs/contextLib';
-import Container from '../components/Container/Container';
 import NavBar from '../components/NavBar/NavBar';
 import Hero from '../components/Hero/Hero';
 import { Auth } from 'aws-amplify';
@@ -19,9 +18,9 @@ const Home = () => {
   return (
     <Fragment>
       <NavBar />
-      <Container>
+
         <Hero />
-      </Container>
+
     </Fragment>
   );
 };

@@ -1,15 +1,14 @@
 import React from 'react';
 import './Banner.css';
-import CustomButtom from '../CustomButton/CustomButton';
-import icon from '../../assets/images/reset-password-svg.PNG'
-
-const Banner = () => {
+import icon from '../../assets/images/all-listings.PNG'
+import ReactCountryFlag from "react-country-flag"
+const Banner = ({onClick}) => {
     return (
         <div className="banner__container">
             <div className="banner__textContent">
-                <h2>Post A Listing</h2>
+                <h3>Post a Listing</h3>
                 <p>The quick, fairer way to exchange currencies across borders</p>
-                <CustomButtom loading={false} width="100px" fontSize="12px" padding="10px">Post a Listing</CustomButtom>
+                <button onClick={onClick} className="banner__listing-btn">Post a listing</button>
             </div>
             <div className="banner__image">
               <img src={icon} alt="banner image"/>

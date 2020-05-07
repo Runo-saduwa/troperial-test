@@ -5,6 +5,7 @@ import AuthenticatedRoute from './components/AuthenticatedRoute';
 import ForgotPassword from './Pages/ForgotPassword';
 import Dashboard from './Pages/Dashboard';
 import ListingsPage from './Pages/ListingsPage';
+import NotificationsPage from './Pages/NotificationsPage';
 import SignUp from './Pages/SignUp';
 import LogIn from './Pages/Login';
 import Home from './Pages/Home';
@@ -19,6 +20,9 @@ const Routes = () => {
       </UnauthenticatedRoute>
       <UnauthenticatedRoute exact path="/listings">
         <ListingsPage />
+      </UnauthenticatedRoute>
+      <UnauthenticatedRoute exact path="/notifications">
+        <NotificationsPage />
       </UnauthenticatedRoute>
       <AuthenticatedRoute exact path="/dashboard">
         <Dashboard />

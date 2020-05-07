@@ -1,4 +1,4 @@
-.listing__container {
+.notications__container {
 	background-color: var(--troperial-dim-blue);
 }
 /* Back Drop Hack */
@@ -9,7 +9,7 @@
 .minHeight {
 	min-height: 100vh;
 }
-.listingsCustom__container {
+.notificationsCustom__container {
 	width: 100%;
 	margin: 0 auto;
 	padding-top: 45px;
@@ -25,7 +25,6 @@
 	position: relative;
 	margin: 0 auto;
 	top: 45px;
-
 }
 .backdrop__profile-heading {
 	display: flex;
@@ -48,18 +47,12 @@
 		width: 90%;
 		margin: 0 auto;
 	}
-	.listingsCustom__container {
+	.notificationsCustom__container {
 		width: 95%;
 		display: grid;
 		grid-template-columns: 1fr 4fr;
 		grid-gap: 10px 30px;
 		padding-top: 100px;
-	}
-	.table-container {
-		margin-top: 20px;
-		width: 100%;
-		border: solid 1px var(--light-grey);
-		border-radius: 10px;
 	}
 	.backdrop {
 		overflow: hidden;
@@ -82,65 +75,4 @@
 		width: 80%;
 		margin: 0 auto;
 	}
-
-	.inline_hybridInput {
-		display: flex;
-	}
 }
-
-
-.react-tabs {
-	margin-top: 10px;
-	-webkit-tap-highlight-color: transparent;
-}
-  
-  .react-tabs__tab-list {
-	border-bottom: 1px solid var(--light-grey);
-	margin: 0 0 10px;
-	padding: 0;
-  }
-  
-  .react-tabs__tab {
-	display: inline-block;
-	/* bottom: -1px;
-	position: relative; */
-	list-style: none;
-	padding: 20px 0px;
-	cursor: pointer;
-	margin-right: 50px;
-  }
-  
-  .react-tabs__tab--selected {
-	color: var(--troperial-blue);
-	border-bottom: 3px solid var(--troperial-blue);
-  }
-  
-  .react-tabs__tab--disabled {
-	color: grey;
-	cursor: default;
-  }
-  
-  .react-tabs__tab:focus {
-	box-shadow: 0 0 5px hsl(208, 99%, 50%);
-	border-color: hsl(208, 99%, 50%);
-	outline: none;
-  }
-  
-  .react-tabs__tab:focus:after {
-	content: "";
-	position: absolute;
-	height: 5px;
-	left: -4px;
-	right: -4px;
-	bottom: -5px;
-	background: #fff;
-  }
-  
-  .react-tabs__tab-panel {
-	display: none;
-  }
-  
-  .react-tabs__tab-panel--selected {
-	display: block;
-  }
-  
