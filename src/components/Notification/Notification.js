@@ -7,7 +7,7 @@ const Notification = () => {
       <div className="notification__info-section">
         <p className="notification__title">
           <span className="notification__mobile-icon">
-            <i class="fas fa-check-circle"></i>
+            <i className="fas fa-check-circle"></i>
           </span>
           Your listing has been approved
         </p>

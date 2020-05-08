@@ -34,14 +34,14 @@ const HybridInput = ({ width, marginTop, marginBottom, line , selectWidth, input
             title="NG"
           />
           {'  '}
-          <i class="fas fa-angle-down"></i>
+          <i className="fas fa-angle-down"></i>
         </button>
         <input className="hybridInput__textInput" type="text" style={{inputWidth}} />
       </div>
 
       {dropdown === false ? null : (
         <section className="custom__dropdown">
-          <div class="option">
+          <div className="option">
             <button>
               <ReactCountryFlag
                 countryCode="US"
@@ -55,22 +55,7 @@ const HybridInput = ({ width, marginTop, marginBottom, line , selectWidth, input
               />
             </button>
           </div>
-          <div class="option">
-            <button>
-              <ReactCountryFlag
-                countryCode="US"
-                svg
-                style={{
-                  width: '1.5em',
-                  height: '1.5em',
-                  borderRadius: '8px',
-                }}
-                title="A"
-              />
-            </button>
-          </div>
-
-          <div class="option">
+          <div className="option">
             <button>
               <ReactCountryFlag
                 countryCode="US"
@@ -85,7 +70,7 @@ const HybridInput = ({ width, marginTop, marginBottom, line , selectWidth, input
             </button>
           </div>
 
-          <div class="option">
+          <div className="option">
             <button>
               <ReactCountryFlag
                 countryCode="US"
@@ -100,7 +85,7 @@ const HybridInput = ({ width, marginTop, marginBottom, line , selectWidth, input
             </button>
           </div>
 
-          <div class="option">
+          <div className="option">
             <button>
               <ReactCountryFlag
                 countryCode="US"
@@ -115,134 +100,22 @@ const HybridInput = ({ width, marginTop, marginBottom, line , selectWidth, input
             </button>
           </div>
 
-          {/* <div class="option">
-                <button>
-                <ReactCountryFlag
-                    countryCode="US"
-                    svg
-                    style={{
-                      width: '1.5em',
-                      height: '1.5em',
-                      borderRadius: '8px',
-                    }}
-                    title="A"
-                  />
-                </button>
-                </div>
-            
-                <div class="option">
-                <button>
-                <ReactCountryFlag
-                    countryCode="US"
-                    svg
-                    style={{
-                      width: '1.5em',
-                      height: '1.5em',
-                      borderRadius: '8px',
-                    }}
-                    title="A"
-                  />
-                </button>
-                </div>
-            
-                <div class="option">
-                <button>
-                <ReactCountryFlag
-                    countryCode="US"
-                    svg
-                    style={{
-                      width: '1.5em',
-                      height: '1.5em',
-                      borderRadius: '8px',
-                    }}
-                    title="A"
-                  />
-                </button>
-                </div>
-                <div class="option">
-                <button>
-                <ReactCountryFlag
-                    countryCode="US"
-                    svg
-                    style={{
-                      width: '1.5em',
-                      height: '1.5em',
-                      borderRadius: '8px',
-                    }}
-                    title="A"
-                  />
-                </button>
-                </div>
-                <div class="option">
-                <button>
-                <ReactCountryFlag
-                    countryCode="US"
-                    svg
-                    style={{
-                      width: '1.5em',
-                      height: '1.5em',
-                      borderRadius: '8px',
-                    }}
-                    title="A"
-                  />
-                </button>
-                </div>
-                <div class="option">
-                <button>
-                <ReactCountryFlag
-                    countryCode="US"
-                    svg
-                    style={{
-                      width: '1.5em',
-                      height: '1.5em',
-                      borderRadius: '8px',
-                    }}
-                    title="A"
-                  />
-                </button>
-                </div>
-                <div class="option">
-                <button>
-                <ReactCountryFlag
-                    countryCode="US"
-                    svg
-                    style={{
-                      width: '1.5em',
-                      height: '1.5em',
-                      borderRadius: '8px',
-                    }}
-                    title="A"
-                  />
-                </button>
-                </div>
-                <div class="option">
-                <button>
-                <ReactCountryFlag
-                    countryCode="US"
-                    svg
-                    style={{
-                      width: '1.5em',
-                      height: '1.5em',
-                      borderRadius: '8px',
-                    }}
-                    title="A"
-                  />
-                </button>
-                </div>
-                <div class="option">
-                <button>
-                <ReactCountryFlag
-                    countryCode="US"
-                    svg
-                    style={{
-                      width: '1.5em',
-                      height: '1.5em',
-                      borderRadius: '8px',
-                    }}
-                    title="A"
-                  />
-                </button>
-                </div> */}
+          <div className="option">
+            <button>
+              <ReactCountryFlag
+                countryCode="US"
+                svg
+                style={{
+                  width: '1.5em',
+                  height: '1.5em',
+                  borderRadius: '8px',
+                }}
+                title="A"
+              />
+            </button>
+          </div>
+
+         
         </section>
       )}
       {line === false ? null:<div className="hybridInput__optional-line"></div>}

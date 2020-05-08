@@ -10,7 +10,7 @@ import SignUp from './Pages/SignUp';
 import LogIn from './Pages/Login';
 import Home from './Pages/Home';
 /**Packages */
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 
 const Routes = () => {
   return (

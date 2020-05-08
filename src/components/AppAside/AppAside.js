@@ -1,10 +1,9 @@
 import React from 'react';
-import './ListingsAside.css';
+import './AppAside.css';
 import verifyIcon from '../../assets/images/troperial-verified.PNG';
 import  HybridInput from '../HybridInput/HybridInput';
 import CustomButton from '../CustomButton/CustomButton'
-//troperial-large-screen-verified
-const ListingsAside = ({ children, onClick }) => {
+const AppAside = ({ children, onClick }) => {
   return (
     <aside className="listings__aside-container">
         {/* <div>
@@ -53,4 +52,4 @@ const ListingsAside = ({ children, onClick }) => {
   );
 };
 
-export default ListingsAside;
+export default AppAside;

@@ -1,7 +1,7 @@
 import React from 'react';
-import './ListingsMain.css';
+import './AppMain.css';
 
-const ListingsMain = ({children}) => {
+const AppMain = ({children}) => {
     return (
         <main className="listing__main-container">
             {/* Banner component */}
@@ -10,4 +10,4 @@ const ListingsMain = ({children}) => {
     )
 }
 
-export default ListingsMain
+export default AppMain;

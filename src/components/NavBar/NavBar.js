@@ -30,7 +30,7 @@ const NavBar = () => {
           <img
             className="largeScreen__profile"
             src={profileImage}
-            alt="profile image"
+            alt="profile"
           />
           <p>Peter <i className="fas fa-caret-down"></i></p>
         </div>
@@ -53,7 +53,7 @@ const NavBar = () => {
             <img
               className="smallScreen__profile"
               src={profileImage}
-              alt="profile image"
+              alt="profile"
             />
           </div>
         </div>

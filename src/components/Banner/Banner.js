@@ -1,7 +1,6 @@
 import React from 'react';
 import './Banner.css';
 import icon from '../../assets/images/all-listings.PNG'
-import ReactCountryFlag from "react-country-flag"
 const Banner = ({onClick}) => {
     return (
         <div className="banner__container">
@@ -11,10 +10,9 @@ const Banner = ({onClick}) => {
                 <button onClick={onClick} className="banner__listing-btn">Post a listing</button>
             </div>
             <div className="banner__image">
-              <img src={icon} alt="banner image"/>
+              <img src={icon} alt="banner"/>
             </div>
         </div>
     )
 }
-
 export default Banner
