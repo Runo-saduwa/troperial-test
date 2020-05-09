@@ -129,7 +129,7 @@ const ForgotPassword = () => {
         </form>
         <ContentContainer>
           <p className="sendToNewPage">
-            Remember Your password? <Link to="/signin">Sign In</Link>
+            Remember Your password? <Link to="/">Sign In</Link>
           </p>
         </ContentContainer>
       </OnboardingFormContainer>

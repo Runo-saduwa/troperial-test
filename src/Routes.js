@@ -12,7 +12,8 @@ const Routes = () => {
   return (
     <Switch>
       <UnauthenticatedRoute exact path="/">
-      <LogIn />
+      <NotificationsPage />
+        {/* <LogIn /> */}
       </UnauthenticatedRoute>
       <AuthenticatedRoute exact path="/listings">
         <ListingsPage />
