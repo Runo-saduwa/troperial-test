@@ -212,7 +212,7 @@ const ForgotPassword = () => {
         </form>
         <ContentContainer>
           <p className="custom-cta">
-            Remember Your Password? <Link to="/signin">Sign In</Link>
+            Remember Your Password? <Link to="/">Sign In</Link>
           </p>
         </ContentContainer>
       </OnboardingFormContainer>
@@ -232,7 +232,7 @@ const ForgotPassword = () => {
             loading={false}
           >
             {link ? (
-              <Link to="/signin">Get back in </Link>
+              <Link to="/">Get back in </Link>
             ) : (
               'Reset Password'
             )}

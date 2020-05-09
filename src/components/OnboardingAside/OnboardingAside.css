@@ -9,7 +9,9 @@
     height: 100%;
     background: var(--troperial-dim-blue);
   }
-
+.intro {
+  font-size: 1.1rem;
+}
   .onboardingContainer__aside-bottom img {
     width: 100%;
   }

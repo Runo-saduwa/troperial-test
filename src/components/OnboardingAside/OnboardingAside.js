@@ -12,7 +12,7 @@ const OnboardingAside = ({ illustration }) => {
           src={troperialLogo}
           alt="troperial logo"
         />
-        <h3>
+        <h3 class="intro">
           Exchange money <img className="moneyBag" src={img} alt="money-bag" />,<br />
           no matter where you are.
         </h3>
