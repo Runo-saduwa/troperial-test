@@ -1,15 +1,12 @@
-import React, { Fragment } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import React from 'react';
 import Routes from './Routes';
-
-function App() {
+import './App.css';
+const App = () => {
   return (
-    <Fragment>
-      <Router>
-        <Routes />
-      </Router>
-    </Fragment>
+    <Router>
+      <Routes />
+    </Router>
   );
-}
-
+};
 export default App;

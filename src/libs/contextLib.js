@@ -3,7 +3,7 @@ import { Auth } from "aws-amplify";
 
 export const AppContext = React.createContext();
 
-export const Provider = ({children}) => {
+export const AppProvider = ({children}) => {
     const [isAuthenticated, userHasAuthenticated] = useState(false);
     const [isAuthenticating, setIsAuthenticating] = useState(true);
 

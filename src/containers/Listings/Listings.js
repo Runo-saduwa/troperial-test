@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import TableContent from '../../components/TableContent/TableContent';
 import Container from '../../components/Container/Container';
@@ -8,9 +8,15 @@ import BackDrop from '../../components/BackDrop/BackDrop';
 import AppMain from '../../components/AppMain/AppMain';
 import Banner from '../../components/Banner/Banner';
 import NavBar from '../../components/NavBar/NavBar';
+import { connect } from 'react-redux';
 import './Listings.css';
+import { getTransactions } from '../../actions/transactionActions';
 
-const Listings = () => {
+const Listings = ({ transaction, getTransactions }) => {
+  useEffect(() => {
+    getTransactions();
+  }, []);
+  console.log(transaction);
   const [showBackDrop, setShowBackDrop] = useState(false);
   const handleBackDrop = () => {
     const show = showBackDrop;
@@ -34,7 +40,7 @@ const Listings = () => {
             </TabList>
 
             <TabPanel>
-              <h2>All Listings</h2>
+              {/* <h2>All Listings</h2> */}
               <div className="table-container">
                 <TableHead userListing={false} />
                 <TableContent
@@ -90,5 +96,14 @@ const Listings = () => {
     </Container>
   );
 };
+const mapStateToProps = (state) => ({
+  transaction: state.transaction,
+});
 
-export default Listings;
+// const mapDispatchToProps = (dispatch) => ({
+//   getTransactions: () => dispatch({type: GET_ALL_TRANSACTIONS})
+// })
+
+export default connect(mapStateToProps, { getTransactions })(
+  Listings,
+);

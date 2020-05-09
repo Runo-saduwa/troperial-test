@@ -39,18 +39,14 @@
 }
 
 .hybridInput__wrapper {
-    /* width: 40%; */
-    /* width: 100px; */
-    /* display: grid;
-    grid-template-columns: 1.2fr 4fr; */
     display: flex;
-    
+
 }
 
 .hybridInput__custom-select, .hybridInput__textInput {
     border: none;
     background: #fff;
-    padding: 8px 10px;
+    padding: 10px 14px;
     box-sizing: border-box;
 }
 
@@ -61,6 +57,7 @@
     font-size: 1rem;
     color: var(--dark-grey);
     width: 100%;
+    /* flex: 1; */
 }
 
 .hybridInput__custom-select {

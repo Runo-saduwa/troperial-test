@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './HybridInput.css';
 import ReactCountryFlag from 'react-country-flag';
 
-const HybridInput = ({ width, marginTop, marginBottom, line , selectWidth, inputWidth}) => {
+const HybridInput = ({line}) => {
   const [dropdown, setDropdown] = useState(false);
 
   const showDropdown = () => {
@@ -12,7 +12,6 @@ const HybridInput = ({ width, marginTop, marginBottom, line , selectWidth, input
   return (
     <div
       className="hybridInput__container"
-      style={{ marginTop, marginBottom }}
     >
       <label
         className="hybridInput__label"
@@ -22,21 +21,20 @@ const HybridInput = ({ width, marginTop, marginBottom, line , selectWidth, input
         I have
       </label>
       <div className="hybridInput__wrapper">
-        <button className="hybridInput__custom-select" name="country" style={{selectWidth}} onClick={showDropdown}>
+        <button className="hybridInput__custom-select" name="country" onClick={showDropdown}>
           <ReactCountryFlag
             countryCode="NG"
             svg
             style={{
               width: '1.5em',
               height: '1.5em',
-              borderRadius: '8px',
             }}
             title="NG"
           />
           {'  '}
           <i className="fas fa-angle-down"></i>
         </button>
-        <input className="hybridInput__textInput" type="text" style={{inputWidth}} />
+        <input className="hybridInput__textInput" type="text" />
       </div>
 
       {dropdown === false ? null : (

@@ -1,6 +1,7 @@
 import React from 'react';
 import './AppAside.css';
 import verifyIcon from '../../assets/images/troperial-verified.PNG';
+import mobileVerifyIcon from '../../assets/images/troperial-mobile-verified.PNG';
 import  HybridInput from '../HybridInput/HybridInput';
 import CustomButton from '../CustomButton/CustomButton'
 const AppAside = ({ children, onClick }) => {
@@ -23,7 +24,7 @@ const AppAside = ({ children, onClick }) => {
 
         </div> */}
       <div className="listings__mobile-verified">
-        <img src={verifyIcon} alt="verify your account" />
+        <img src={mobileVerifyIcon} alt="verify your account" />
         <p>Verify your account</p>
       </div>
       <div className="listings__largeScreen-verified">

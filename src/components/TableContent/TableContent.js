@@ -43,9 +43,9 @@ const TableContent = ({
           )}
         </div>
         <div>
-          <p className="tableContent__mobile-title">Action</p>
+          <p className={`tableContent__mobile-title ${userListings == true ? null : "hide"}`}>Action</p>
           {userListings === true ? (
-            <div>
+            <div className="action_btns">
               <button className="show__matches__btn">
                 Show Matches
               </button>

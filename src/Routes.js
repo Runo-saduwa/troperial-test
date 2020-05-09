@@ -1,37 +1,30 @@
 import React from 'react';
-/**Pages */
+import { Switch } from 'react-router-dom';
 import UnauthenticatedRoute from './components/UnAuthenticatedRoute';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
-import ForgotPassword from './Pages/ForgotPassword';
-import Dashboard from './Pages/Dashboard';
-import ListingsPage from './Pages/ListingsPage';
 import NotificationsPage from './Pages/NotificationsPage';
+import ForgotPassword from './Pages/ForgotPassword';
+import ListingsPage from './Pages/ListingsPage';
+import Dashboard from './Pages/Dashboard';
 import SignUp from './Pages/SignUp';
 import LogIn from './Pages/Login';
-import Home from './Pages/Home';
-/**Packages */
-import { Switch } from 'react-router-dom';
-
 const Routes = () => {
   return (
     <Switch>
       <UnauthenticatedRoute exact path="/">
-        <Home />
+      <LogIn />
       </UnauthenticatedRoute>
-      <UnauthenticatedRoute exact path="/listings">
+      <AuthenticatedRoute exact path="/listings">
         <ListingsPage />
-      </UnauthenticatedRoute>
-      <UnauthenticatedRoute exact path="/notifications">
+      </AuthenticatedRoute>
+      <AuthenticatedRoute exact path="/notifications">
         <NotificationsPage />
-      </UnauthenticatedRoute>
+      </AuthenticatedRoute>
       <AuthenticatedRoute exact path="/dashboard">
         <Dashboard />
       </AuthenticatedRoute>
       <UnauthenticatedRoute exact path="/signup">
         <SignUp />
-      </UnauthenticatedRoute>
-      <UnauthenticatedRoute exact path="/signin">
-        <LogIn />
       </UnauthenticatedRoute>
       <UnauthenticatedRoute exact path="/forgotpassword">
         <ForgotPassword />

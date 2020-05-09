@@ -31,7 +31,7 @@ export default function UnauthenticatedRoute({ children, ...rest }) {
         <Redirect
           to={
             redirect === '' || redirect === null
-              ? '/dashboard'
+              ? '/listings'
               : redirect
           }
         />
