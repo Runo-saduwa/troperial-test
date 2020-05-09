@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 import UnauthenticatedRoute from './components/UnAuthenticatedRoute';
 import AuthenticatedRoute from './components/AuthenticatedRoute';
 import NotificationsPage from './Pages/NotificationsPage';
@@ -11,9 +11,12 @@ import LogIn from './Pages/Login';
 const Routes = () => {
   return (
     <Switch>
-      <UnauthenticatedRoute exact path="/">
-      <NotificationsPage />
-        {/* <LogIn /> */}
+      <Route exact path="/">
+        <h1>home</h1>
+        <button><Link to="/signin">Log in</Link></button>
+      </Route>
+      <UnauthenticatedRoute exact path="/signin">
+        <LogIn />
       </UnauthenticatedRoute>
       <AuthenticatedRoute exact path="/listings">
         <ListingsPage />
