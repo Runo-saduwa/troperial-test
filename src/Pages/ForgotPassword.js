@@ -129,7 +129,7 @@ const ForgotPassword = () => {
         </form>
         <ContentContainer>
           <p className="sendToNewPage">
-            Remember Your password? <Link to="/">Sign In</Link>
+            Remember Your password? <Link to="/signin">Sign In</Link>
           </p>
         </ContentContainer>
       </OnboardingFormContainer>
@@ -232,7 +232,7 @@ const ForgotPassword = () => {
             loading={false}
           >
             {link ? (
-              <Link to="/">Get back in </Link>
+              <Link to="/signin">Get back in </Link>
             ) : (
               'Reset Password'
             )}

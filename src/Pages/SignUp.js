@@ -166,7 +166,7 @@ const SignUp = () => {
         </form>
         <ContentContainer>
           <p className="custom-cta">
-            already got an account? <Link to="/">Sign In</Link>
+            already got an account? <Link to="/signin">Sign In</Link>
           </p>
         </ContentContainer>
       </OnboardingFormContainer>
