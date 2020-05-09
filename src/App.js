@@ -5,9 +5,10 @@ import './App.css';
 const App = () => {
   return (
     <Fragment>
-      <Router>
+      {/* <Router>
         <Routes />
-      </Router>
+      </Router> */}
+      <h1>hiiii</h1>
     </Fragment>
   );
 };
