@@ -11,13 +11,14 @@ import LogIn from './Pages/Login';
 const Routes = () => {
   return (
     <Switch>
-      <Route exact path="/">
+      {/* <Route exact path="/">
         <h1>home</h1>
         <button><Link to="/signin">Log in</Link></button>
-      </Route>
-      <UnauthenticatedRoute exact path="/signin">
-        <LogIn />
-      </UnauthenticatedRoute>
+      </Route> */}
+      {/* <UnauthenticatedRoute exact path="/signin"> */}
+      <Route exact path="/" component={LogIn}/>
+
+      {/* </UnauthenticatedRoute> */}
       <AuthenticatedRoute exact path="/listings">
         <ListingsPage />
       </AuthenticatedRoute>
