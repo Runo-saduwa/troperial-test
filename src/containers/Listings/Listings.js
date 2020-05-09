@@ -13,10 +13,10 @@ import './Listings.css';
 import { getTransactions } from '../../actions/transactionActions';
 
 const Listings = ({ transaction, getTransactions }) => {
-  useEffect(() => {
-    getTransactions();
-  }, []);
-  console.log(transaction);
+  // useEffect(() => {
+  //   getTransactions();
+  // }, []);
+
   const [showBackDrop, setShowBackDrop] = useState(false);
   const handleBackDrop = () => {
     const show = showBackDrop;
